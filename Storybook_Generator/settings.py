@@ -113,7 +113,7 @@ STATICFILES_DIRS = [
 
 STATIC_URL = 'static/'
 
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = "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"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

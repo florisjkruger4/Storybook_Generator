@@ -27,11 +27,11 @@ def returnStorybookName(bookName):
     else:
         return ''
 
-
-def returnStorybookStory(bookContent):
+#fantasy
+def returnStorybookStory(name, power, location):
     response = openai.Completion.create(
         model="text-davinci-001",
-        prompt="Write a kids storybook (minimum 100 words) about \n {}".format(bookContent),
+        prompt="Write a kids storybook about someone named \n {}".format(name) + " with {}".format(power) + " superpowers that that takes place in {}".format(location), 
         temperature=0.25,
         max_tokens=300,
         top_p=1,
@@ -50,7 +50,7 @@ def returnStorybookStory(bookContent):
 
 def returnStorybookImg(bookImg):
     response = openai.Image.create(
-        prompt = "Generate a storybook image of \n {}".format(bookImg),
+        prompt = "Generate a kids storybook image of \n {}".format(bookImg),
         n = 2,
         size = "256x256"
     )
