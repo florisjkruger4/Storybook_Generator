@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OpenAI Demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="/templates/css/base/home.css" type="text/css" rel="stylesheet">
+
+  </head>
+  <body style="background-color: rgb(189, 188, 188);">
+
+    <div class="container">
+        <form action="#" class="form" method="post">
+            {% csrf_token %}
+            <h2 class="text-center">Storybook Generator Fields</h2>
+
+            <!-- Progress bar -->
+            <div class="progressbar">
+                <div class="progress" id="progress"></div>
+                
+                <div
+                class="progress-step progress-step-active"
+                data-title="Prompt1"
+                ></div>
+                <div class="progress-step" data-title="Prompt2"></div>
+                <div class="progress-step" data-title="Prompt3"></div>
+            </div>
+
+            <!-- Step 1 -->
+            <div class="form-step form-step-active">
+                <div class="input-group">
+                <label for="bestfriendsname">bestfriendsname</label>
+                <input type="text" name="bestfriendsname" id="bestfriendsname" />
+                </div>
+                <div class="">
+                <a href="#" class="btn btn-next width-50 ml-auto">Next</a>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="form-step">
+                <div class="input-group">
+                <label for="superpower">superpower</label>
+                <input type="text" name="superpower" id="superpower" />
+                </div>
+                <div class="btns-group">
+                <a href="#" class="btn btn-prev">Previous</a>
+                <a href="#" class="btn btn-next">Next</a>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="form-step">
+                <div class="input-group">
+                <label for="location">location</label>
+                <input type="text" name="location" id="location" />
+                </div>
+                <div class="btns-group">
+                <a href="#" class="btn btn-prev">Previous</a>
+                <input type="submit" value="Submit" class="btn" />
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script src="/templates/javascript/base/home.js"></script>
+
+  </body>
+</html>

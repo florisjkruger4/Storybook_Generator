@@ -28,13 +28,13 @@ def homePage(request):
         context['coverImage'] = returnStorybookImg(bookImg)[0]
         context['image2'] = returnStorybookImg(bookImg)[1]
 
-        return render(request, 'img.html', context)
+        return render(request, 'html/base/img.html', context)
 
-    return render(request, 'home.html', context)
+    return render(request, 'html/base/home.html', context)
 
 
 
 def ImgPage(request):
 
     context = {} 
-    return render(request, 'img.html', context)
+    return render(request, 'html/base/img.html', context)
