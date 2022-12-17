@@ -1,7 +1,6 @@
 
-
 :root {
---primary-color: rgb(179, 11, 11);
+--primary-color: #ffd64a;
 }
 
 *,
@@ -10,13 +9,18 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Montserrat, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+.formbody {
     margin: 0;
     display: grid;
     place-items: center;
     min-height: 100vh;
-    }
+    padding-top: 230px;
+}
+
+body {
+    background-color: rgb(161, 235, 255);
+}
+
 /* Global Stylings */
 label {
     display: block;
@@ -28,7 +32,43 @@ input {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #ccc;
-    border-radius: 0.25rem;
+    opacity: 75%;
+}
+
+.hidden-enter {
+    background-color: aquamarine;
+    border-radius: 50px;
+}
+
+.nav {
+    margin-left: 10%;
+    margin-right: 10%;
+    position: fixed;
+    background-color: #ffd64a;
+    width: 80%;
+    height: 100px;
+    border-radius: 0 0 30px 30px;
+}
+.navcontent {
+    display: flex; 
+    justify-content: space-between; 
+    width: 100%; 
+    padding-left: 10%; 
+    padding-right: 10%; 
+    margin: auto
+}
+.navoptions {
+    height: 120px; 
+    min-width: 
+    170px; 
+    padding-top: 20px; 
+    border-radius: 0 0 25px 25px; 
+    background-color: brown; 
+    text-align: center;
+    transition: transform .3s ease-out;
+}
+.navoptions:hover {
+    transform: scale(1.15) translate(0, 7.5px);
 }
 
 .width-50 {
@@ -65,7 +105,7 @@ input {
 }
 
 .progress {
-    background-color: red;
+    background-color: ffd64a;
     width: 0%;
     transition: 0.3s;
 }
@@ -73,7 +113,7 @@ input {
 .progress-step {
     width: 2.1875rem;
     height: 2.1875rem;
-    background-color: #dcdcdc;
+    background-color: #f3f3f3;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -95,16 +135,17 @@ input {
 
 .progress-step-active {
     background-color: var(--primary-color);
-    color: #f3f3f3;
+    color: #666;
 }
 
 /* Form */
 .form {
     width: clamp(320px, 30%, 430px);
     margin: 0 auto;
-    border: 1px solid #ccc;
-    border-radius: 0.35rem;
+    border: 1px solid brown;
+    border-radius: 15px;
     padding: 1.5rem;
+    background-color:  rgba(127, 255, 212, 0.361);
 }
 
 .form-step {
@@ -153,3 +194,33 @@ input {
 .btn:hover {
     box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
 }
+
+/* loading dot styling */
+.dotcontainer{
+    width: 60px;
+    margin: 70px auto;
+    visibility: hidden;
+  }
+  .dot{
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    border-radius: 100%;
+  }
+  .dot1{
+    background-color: #1abc9c;
+    animation: jump-up 0.6s 0.1s linear infinite;
+  }
+  .dot2{
+    background-color: #ffd64a;
+    animation: jump-up 0.6s 0.2s linear infinite;
+  }
+  .dot3{
+    background-color: #e867af;
+    animation: jump-up 0.6s 0.3s linear infinite;
+  }
+  @keyframes jump-up{
+    50%{
+      transform: translate(0,15px);
+    }
+  }

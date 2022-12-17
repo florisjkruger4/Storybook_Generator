@@ -9,11 +9,14 @@ const progressSteps = document.querySelectorAll(".progress-step");
 let formStepsNum = 0;
 
 nextBtns.forEach((btn) => {
-btn.addEventListener("click", () => {
-    formStepsNum++;
-    updateFormSteps();
-    updateProgressbar();
-});
+    btn.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            formStepsNum++;
+            updateFormSteps();
+            updateProgressbar();
+        }
+    });
 });
 
 prevBtns.forEach((btn) => {
@@ -47,3 +50,14 @@ const progressActive = document.querySelectorAll(".progress-step-active");
 progress.style.width =
     ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
 }
+
+function loadAnim() {
+    document.getElementById('dotcontainer').style.visibility = "visible";
+}
+
+
+
+
+
+
+

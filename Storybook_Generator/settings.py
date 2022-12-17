@@ -122,3 +122,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = ''
 MEDIA_URL = ''
+
+OPENAI_API_KEY = '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'
