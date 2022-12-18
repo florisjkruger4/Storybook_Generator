@@ -17,8 +17,13 @@
     padding-top: 230px;
 }
 
+html {
+    overflow: hidden;
+}
+
 body {
-    background-color: rgb(161, 235, 255);
+    background-size: cover;
+    transition: background-color 1s ease;
 }
 
 /* Global Stylings */
@@ -44,10 +49,11 @@ input {
     margin-left: 10%;
     margin-right: 10%;
     position: fixed;
-    background-color: #ffd64a;
+    background-color: #ffd54a7d;
     width: 80%;
     height: 100px;
     border-radius: 0 0 30px 30px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .navcontent {
     display: flex; 
@@ -55,20 +61,22 @@ input {
     width: 100%; 
     padding-left: 10%; 
     padding-right: 10%; 
-    margin: auto
+    margin: auto;
+    color: #ffd64a;
 }
 .navoptions {
     height: 120px; 
-    min-width: 
-    170px; 
-    padding-top: 20px; 
+    min-width: 170px; 
     border-radius: 0 0 25px 25px; 
     background-color: brown; 
+    padding-top: 20px;
     text-align: center;
     transition: transform .3s ease-out;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .navoptions:hover {
     transform: scale(1.15) translate(0, 7.5px);
+    cursor: pointer;
 }
 
 .width-50 {
@@ -142,10 +150,6 @@ input {
 .form {
     width: clamp(320px, 30%, 430px);
     margin: 0 auto;
-    border: 1px solid brown;
-    border-radius: 15px;
-    padding: 1.5rem;
-    background-color:  rgba(127, 255, 212, 0.361);
 }
 
 .form-step {

@@ -29,20 +29,23 @@ def returnStorybookName(bookName):
         return ''
 
 # Fantasy Storybook Generator Options
-def returnStorybookStory(name, power, location):
+def returnFantasyStorybookStory(name, quest, location):
 
-    value = randint(0, 2)
-    fantasyPrompts = []
-    fantasyPrompts.append("Write a kids storybook a toad that goes on an adventure to fight a frog")
-    fantasyPrompts.append("Write a kids storybook a pirate that needs to fight off an army of crabs")
-    fantasyPrompts.append("Write a kids storybook about someone named \n {}".format(name) + " with {}".format(power) + " superpowers that that takes place in {}".format(location))
+    fantasyPrompts1value = randint(0, 7)
+    fantasyPrompts1 = ["funny", "heroic", "courageous", "daunting", "impactful", "happy", "magical", "medieval"]
+    fantasyPrompts2value = randint(0, 1)
+    fantasyPrompts2 = ["person", "cow", "dog", "rhino"]
+
+    fantasyPromptsCompleted = []
+    fantasyPromptsCompleted.append("Write a " + fantasyPrompts1[fantasyPrompts1value] + " fantasy story about a " + fantasyPrompts2[fantasyPrompts2value] + " named {}".format(name) + " who is on a quest {}".format(quest) + " that takes place in or on {}".format(location) + " in the form of a bedtime storybook for a child.")
+
+    print(fantasyPromptsCompleted[0])
 
     response = openai.Completion.create(
-        model="text-davinci-001",
-        #prompt=fantasyPrompts[value], 
-        prompt="Write a kids storybook about someone named \n {}".format(name) + " with {}".format(power) + " superpowers that that takes place in {}".format(location),
+        model="text-davinci-003",
+        prompt=fantasyPromptsCompleted[0],
         temperature=0.25,
-        max_tokens=300,
+        max_tokens=500,
         top_p=1,
         frequency_penalty=1,
         presence_penalty=1
@@ -66,7 +69,6 @@ def returnStorybookImg(bookImg):
 
     imageOne_url = response['data'][0]['url']
     imageTwo_url = response['data'][1]['url']
-    #print(imageTwo_url)
 
     return imageOne_url, imageTwo_url
 

@@ -8,9 +8,40 @@ const progressSteps = document.querySelectorAll(".progress-step");
 
 let formStepsNum = 0;
 
+focusType1 = document.getElementById("superpower")
+focusType2 = document.getElementById("location")
+
+function checkValue1() {
+    var name = document.getElementById("bestfriendsname");
+    if(name.value === "") {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function checkValue2() {
+    var name = document.getElementById("superpower");
+    if(name.value === "") {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 nextBtns.forEach((btn) => {
     btn.addEventListener("keydown", (event) => {
         if (event.key === "Enter") {
+            if (!checkValue1()) {
+                return
+            } 
+
+            if (formStepsNum === 1) {
+                if (!checkValue2()) {
+                    return
+                }
+            }
+
             event.preventDefault();
             formStepsNum++;
             updateFormSteps();
@@ -34,6 +65,8 @@ formSteps.forEach((formStep) => {
 });
 
 formSteps[formStepsNum].classList.add("form-step-active");
+focusType1.focus();
+focusType2.focus();
 }
 
 function updateProgressbar() {
@@ -54,6 +87,10 @@ progress.style.width =
 function loadAnim() {
     document.getElementById('dotcontainer').style.visibility = "visible";
 }
+
+
+
+
 
 
 

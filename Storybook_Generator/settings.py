@@ -114,7 +114,6 @@ STATICFILES_DIRS = [
 STATIC_URL = 'static/'
 
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -123,4 +122,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = ''
 MEDIA_URL = ''
 
-OPENAI_API_KEY = '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'
+OPENAI_API_KEY = ''

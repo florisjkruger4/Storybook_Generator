@@ -4,8 +4,11 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('', views.homePage, name="home"),
-    path('imgPage', views.ImgPage, name="imgPage"),
+    path('', views.fantasyPage, name="fantasy"),
+    path('sportsPage', views.sportsPage, name="sports"),
+    path('adventurePage', views.adventurePage, name="adventure"),
+    path('spookyPage', views.spookyPage, name="spooky"),
+    path('imgPage', views.ImgPage, name="imgPage")
 
 ]
 
