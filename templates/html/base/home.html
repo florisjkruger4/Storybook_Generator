@@ -15,23 +15,26 @@
     <!-- JavaScript TypingTxt -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" type="text/javascript"></script>
 
-  </head>
-  <body style="background-image: url(/static/images/fantasy.gif)">
+    <!-- Google Fonts Link -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bangers|Bungee|Creepster|MedievalSharp">
 
-    <!-- onmousemove="document.body.style.backgroundImage = 'url(/static/images/fantasy.gif)'" -->
+  </head>
+  <body id="BG" style="background-image: url(/static/images/fantasy1.gif);">
+
+    <!-- onmousemove="document.body.style.backgroundImage = 'url(/static/images/adventure.gif)'" -->
     <div class="nav">
       <div class="navcontent">
-        <div class="navoptions" onclick="location.href=''">
-          <h2>Fantasy</h2>
+        <div class="navoptions" onclick="location.href='/'">
+          <h2 style="font-family: 'MedievalSharp', cursive; font-size: 38px;">Fantasy</h2>
         </div>
-        <div class="navoptions" onclick="location.href='sportsPage'">
-          <h2>Sports</h2>
+        <div class="navoptions" onclick="location.href = 'sportsPage'">
+          <h2 style="font-family: 'Bungee', cursive;">Sports</h2>
         </div>
         <div class="navoptions" onclick="location.href='adventurePage'">
-          <h2>Adventure</h2>
+          <h2 style="font-family: 'Bangers', cursive; font-size: 38px;">Adventure</h2>
         </div>
         <div class="navoptions" onclick="location.href='spookyPage'">
-          <h2>Spooky</h2>
+          <h2 style="font-family: 'Creepster', cursive; font-size: 38px;">Spooky</h2>
         </div>
       </div>
     </div>
@@ -39,20 +42,20 @@
     <div class="formbody">
         <form action="#" class="form" method="post" id="form" onsubmit="loadAnim()">
             {% csrf_token %}
-            <h4 class="text-center" style="font-size: 32px; color: #ffd64a">Storybook Generator</h4>
+            <h4 class="text-center" style="font-size: 38px;" id="title">Storybook Generator</h4>
 
             <!-- Progress bar -->
             <div class="progressbar">
                 <div class="progress" id="progress"></div>
-                <div class="progress-step progress-step-active" data-title="Prompt1" style="color: black;"></div>
-                <div class="progress-step" data-title="Prompt2" style="color: black;"></div>
-                <div class="progress-step" data-title="Prompt3" style="color: black;"></div>
+                <div class="progress-step progress-step-active" data-title="Prompt1"></div>
+                <div class="progress-step" data-title="Prompt2"></div>
+                <div class="progress-step" data-title="Prompt3"></div>
             </div>
 
             <!-- Step 1 -->
             <div class="form-step form-step-active btn-next">
                 <div class="input-group">
-                  <h4 style="font-size: 20px; margin: auto; padding-bottom: 20px; color: #ffd64a">Enter the name of a <span class="auto-name-type" style="color: brown; font-size: 20px;"> </span></h4>
+                  <h4 style="font-size: 20px; margin: auto; padding-bottom: 25px; text-align: center;"> {{prompt1}} <br> Hint (<span class="auto-name-type" style="color: brown; font-size: 20px;">/</span>)</h4>
                   <label for="bestfriendsname"></label>
                   <input type="text" name="bestfriendsname" id="bestfriendsname" style="border-radius: 80px; height: 100px; font-size: 28px; outline: none; opacity: 50%;" placeholder="Start Typing..." autofocus required onchange="Call1()"/>
                 </div>
@@ -61,7 +64,7 @@
             <!-- Step 2 -->
             <div class="form-step btn-next">
                 <div class="input-group">
-                  <h4 style="font-size: 20px; margin: auto; padding-bottom: 20px; color: #ffd64a">Enter a type of quest like <span class="auto-power-type" style="color: brown; font-size: 20px;"> </span></h4>
+                  <h4 style="font-size: 20px; margin: auto; padding-bottom: 25px; text-align: center;"> {{prompt2}} <br> Hint (<span class="auto-suggest-type" style="color: brown; font-size: 20px;">/</span>)</h4>
                 <label for="superpower"></label>
                 <input type="text" name="superpower" id="superpower" style="border-radius: 80px; height: 100px; font-size: 28px;outline: none; opacity: 50%" placeholder="Start Typing..." required onchange="Call2()"/>
                 </div>
@@ -70,7 +73,7 @@
             <!-- Step 3 -->
             <div class="form-step">
                 <div class="input-group">
-                  <h4 style="font-size: 20px; margin: auto; padding-bottom: 20px; color: #ffd64a">Enter a specific location like <span class="auto-location-type" style="color: brown; font-size: 20px;"> </span></h4>
+                  <h4 style="font-size: 20px; margin: auto; padding-bottom: 25px; text-align: center;"> {{prompt3}} <br> Hint (<span class="auto-location-type" style="color: brown; font-size: 20px;">/</span>)</h4>
                 <label for="location"></label>
                 <input type="text" name="location" id="location" style="border-radius: 80px; height: 100px; font-size: 28px; outline: none; opacity: 50%" placeholder="Start Typing..." required/>
                 </div>
@@ -88,11 +91,11 @@
       </div>
     </div>
 
-    <!-- Auto Type Suggestion Functionality -->
+    <!-- Auto Type Suggestion Functionality & Extra JS -->
     <script type="text/javascript">
       
         var x = "{{name}}"
-        var y = "{{quest}}"
+        var y = "{{contained}}"
         var z = "{{location}}"
 
         var typed = new Typed(".auto-name-type", {
@@ -101,7 +104,7 @@
           })
 
           function Call1() {
-            var typed = new Typed(".auto-power-type", {
+            var typed = new Typed(".auto-suggest-type", {
               startDelay: 1200,
               strings: [,y],
               typeSpeed: 180,
@@ -116,6 +119,29 @@
               typeSpeed: 180,
             })
           }
+
+          if (window.location.href === "http://127.0.0.1:8000/"){
+              document.getElementById('BG').style.backgroundImage = "url(/static/images/fantasy1.gif)"
+              document.getElementById('BG').style.backgroundPositionY = "-25vh"
+              document.getElementById('title').style.fontFamily = "MedievalSharp, cursive"
+            }
+          if (window.location.href === "http://127.0.0.1:8000/sportsPage"){
+              document.getElementById('BG').style.backgroundImage = "url(/static/images/sports.gif)"
+              document.getElementById('BG').style.backgroundPositionY = "-5vh"
+              document.getElementById('title').style.fontFamily = "Bungee, cursive"
+              document.getElementById('title').style.fontSize = "33px"
+            }
+          if (window.location.href === "http://127.0.0.1:8000/adventurePage"){
+              document.getElementById('BG').style.backgroundImage = "url(/static/images/adventure.gif)"
+              document.getElementById('BG').style.backgroundPositionY = "-14vh"
+              document.getElementById('title').style.fontFamily = "Bangers, cursive"
+            }
+          if (window.location.href === "http://127.0.0.1:8000/spookyPage"){
+              document.getElementById('BG').style.backgroundImage = "url(/static/images/spooky.gif)"
+              document.getElementById('BG').style.backgroundPositionY = "-10vh"
+              document.getElementById('title').style.fontFamily = "Creepster, cursive"
+            }
+          
     </script>
 
     <!-- Javascript -->

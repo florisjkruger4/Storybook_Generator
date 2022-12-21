@@ -1,6 +1,6 @@
 
 :root {
---primary-color: #ffd64a;
+--primary-color: #ffbb00;
 }
 
 *,
@@ -15,6 +15,7 @@
     place-items: center;
     min-height: 100vh;
     padding-top: 230px;
+    color: var(--primary-color);
 }
 
 html {
@@ -23,7 +24,6 @@ html {
 
 body {
     background-size: cover;
-    transition: background-color 1s ease;
 }
 
 /* Global Stylings */
@@ -49,7 +49,7 @@ input {
     margin-left: 10%;
     margin-right: 10%;
     position: fixed;
-    background-color: #ffd54a7d;
+    background-color: #ffd54a4c;
     width: 80%;
     height: 100px;
     border-radius: 0 0 30px 30px;
@@ -62,14 +62,14 @@ input {
     padding-left: 10%; 
     padding-right: 10%; 
     margin: auto;
-    color: #ffd64a;
+    color: var(--primary-color);
 }
 .navoptions {
     height: 120px; 
     min-width: 170px; 
     border-radius: 0 0 25px 25px; 
     background-color: brown; 
-    padding-top: 20px;
+    padding-top: 35px;
     text-align: center;
     transition: transform .3s ease-out;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -108,12 +108,12 @@ input {
     transform: translateY(-50%);
     height: 4px;
     width: 100%;
-    background-color: #dcdcdc;
+    background-color: hsl(0, 0%, 86%);
     z-index: -1;
 }
 
 .progress {
-    background-color: ffd64a;
+    background-color: var(--primary-color);
     width: 0%;
     transition: 0.3s;
 }
@@ -138,18 +138,39 @@ input {
     position: absolute;
     top: calc(100% + 0.5rem);
     font-size: 0.85rem;
-    color: #666;
+    color: rgb(0, 0, 0);
 }
 
 .progress-step-active {
     background-color: var(--primary-color);
-    color: #666;
+    color: rgb(0, 0, 0);
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 187, 0, 0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(255, 187, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 187, 0, 0);
+	}
 }
 
 /* Form */
 .form {
     width: clamp(320px, 30%, 430px);
     margin: 0 auto;
+    border-radius: 40px;
+    padding: 30px;
+    /*background-color: #ffd54a4c;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;*/
 }
 
 .form-step {

@@ -1,0 +1,36 @@
+body {
+    background-color: #F8F0E3;
+}
+
+.title {
+    text-align: center;
+    font-size: 38px;
+}
+
+.content {
+    margin: auto;
+    text-align: center;
+    padding-left: 18%;
+    padding-right: 18%;
+}
+
+.coverIMGcontainer {
+    margin: auto;
+    border: 2px rgb(60, 60, 60) solid;
+    padding: 50px;
+    height: 80vh;
+}
+
+.coverIMG {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}
+
+.Divider {
+    border-top: 2px rgb(60, 60, 60) solid;
+    width: 70%;
+    margin: auto;
+    margin-top: 30px;
+    padding-bottom: 30px;
+}

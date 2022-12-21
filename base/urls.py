@@ -8,8 +8,7 @@ urlpatterns = [
     path('sportsPage', views.sportsPage, name="sports"),
     path('adventurePage', views.adventurePage, name="adventure"),
     path('spookyPage', views.spookyPage, name="spooky"),
-    path('imgPage', views.ImgPage, name="imgPage")
-
+    path('storyPage', views.storyPage, name="storyPage"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
