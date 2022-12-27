@@ -8,11 +8,11 @@ const progressSteps = document.querySelectorAll(".progress-step");
 
 let formStepsNum = 0;
 
-focusType1 = document.getElementById("superpower")
+focusType1 = document.getElementById("contained")
 focusType2 = document.getElementById("location")
 
 function checkValue1() {
-    var name = document.getElementById("bestfriendsname");
+    var name = document.getElementById("name");
     if(name.value === "") {
         return false;
     } else {
@@ -21,7 +21,7 @@ function checkValue1() {
 }
 
 function checkValue2() {
-    var name = document.getElementById("superpower");
+    var name = document.getElementById("contained");
     if(name.value === "") {
         return false;
     } else {
@@ -46,6 +46,7 @@ nextBtns.forEach((btn) => {
             formStepsNum++;
             updateFormSteps();
             updateProgressbar();
+            updateAnim();
         }
     });
 });
@@ -69,12 +70,13 @@ focusType1.focus();
 focusType2.focus();
 }
 
+
 function updateProgressbar() {
 progressSteps.forEach((progressStep, idx) => {
     if (idx < formStepsNum + 1) {
-    progressStep.classList.add("progress-step-active");
+        progressStep.classList.add("progress-step-active");
     } else {
-    progressStep.classList.remove("progress-step-active");
+        progressStep.classList.remove("progress-step-active");
     }
 });
 
@@ -84,9 +86,48 @@ progress.style.width =
     ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
 }
 
-function loadAnim() {
-    document.getElementById('dotcontainer').style.visibility = "visible";
+function updateAnim() {
+    progressSteps.forEach((progressStep) => {
+        progressStep.classList.contains("progress-anim") &&
+        progressStep.classList.remove("progress-anim");
+    });
+    progressSteps[formStepsNum].classList.add("progress-anim");
 }
+
+function loadAnim() {
+    document.getElementById('loader').style.visibility = "visible";
+}
+
+if (window.location.href === "http://127.0.0.1:8000/"){
+              document.getElementById('BG').style.backgroundImage = "url(/static/images/fantasy.gif)"
+              document.getElementById('BG').style.backgroundPosition = "bottom"
+              document.getElementById('BG').style.backgroundPositionY = "-35vh"
+              document.getElementById('title').style.fontFamily = "Eagle Lake, cursive"
+              document.getElementById('title').style.fontSize = "31px"
+              document.getElementById('fantasyBtn').style.animation = "anim 3s ease-in-out infinite"
+            }
+if (window.location.href === "http://127.0.0.1:8000/sportsPage"){
+              document.getElementById('BG').style.backgroundImage = "url(/static/images/sports.gif)"
+              document.getElementById('BG').style.backgroundPosition = "bottom"
+              document.getElementById('BG').style.backgroundPositionY = "-18vh"
+              document.getElementById('title').style.fontFamily = "Bungee, cursive"
+              document.getElementById('title').style.fontSize = "28px"
+              document.getElementById('sportsBtn').style.animation = "anim 3s ease-in-out infinite"
+            }
+if (window.location.href === "http://127.0.0.1:8000/adventurePage"){
+              document.getElementById('BG').style.backgroundImage = "url(/static/images/adventure.gif)"
+              document.getElementById('BG').style.backgroundPosition = "bottom"
+              document.getElementById('BG').style.backgroundPositionY = "-15vh"
+              document.getElementById('title').style.fontFamily = "Bangers, cursive"
+              document.getElementById('adventureBtn').style.animation = "anim 3s ease-in-out infinite"
+            }
+if (window.location.href === "http://127.0.0.1:8000/spookyPage"){
+              document.getElementById('BG').style.backgroundImage = "url(/static/images/spooky.gif)"
+              document.getElementById('BG').style.backgroundPosition = "bottom"
+              document.getElementById('BG').style.backgroundPositionY = "-10vh"
+              document.getElementById('title').style.fontFamily = "Creepster, cursive"
+              document.getElementById('spookyBtn').style.animation = "anim 3s ease-in-out infinite"
+            }
 
 
 

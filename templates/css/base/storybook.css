@@ -1,36 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: #F8F0E3;
 }
 
-.title {
-    text-align: center;
-    font-size: 38px;
+.Layout {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.content {
+.audioContainer {
+    padding-top: 3vh;
+    margin: auto; 
+    width: fit-content;
+}
+
+/* Book */
+.book {
+    position: relative;
+    width: 65vh;
+    height: 80vh;
+    transition: transform 0.5s;
+    background-color: #624a2e;
+    border-radius: 10px;
+    box-shadow: rgba(111, 110, 100, 0.2) 0px 7px 29px 0px;
+}
+.bookClosedAnim {
+    animation: anim 3s ease-in-out infinite
+}
+@keyframes anim {
+    0% {
+		transform: scale(1.0);
+	}
+
+	50% {
+		transform: scale(1.05);
+	}
+
+	100% {
+		transform: scale(1.0);
+	}
+}
+
+.coverPaper {
+    background-color: #624a2e;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    perspective: 1500px;
+    font-size: 25px;
+    box-shadow: rgba(111, 110, 100, 0.2) 0px 7px 29px 0px;
+}
+
+.paper {
+    background-color: white;
+    position: absolute;
+    width: 98%;
+    height: 98%;
+    top: 1%;
+    bottom: 1%;
+    left: 0;
+    border-radius: 20px;
+    perspective: 1500px;
+    font-size: 25px;
+    border-left: 1px black solid;
+}
+
+.front, .back {
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    transform-origin: left;
+    transition: transform 0.5s;
+    overflow: hidden;
+}
+
+.front {
+    z-index: 1;
+    backface-visibility: hidden;
+}
+.back {
+    z-index: 0;
+}
+
+.front-content, .back-content {
+    width: 100%;
+    height: 98%;
+    padding: 10px;
+}
+
+.back-content {
+    transform: rotateY(180deg);
+}
+
+/* Paper Flip */
+.flipped .front, .flipped .back {
+    transform: rotateY(-180deg);
+}
+
+/* Prve & Next Buttons */
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
     margin: auto;
-    text-align: center;
-    padding-left: 18%;
-    padding-right: 18%;
+    transition: transform .3s ease-out;
+    color: #F8F0E3;
+}
+button:focus {
+    outline: none;
+}
+button:hover {
+    color: #624a2e;
+    transform: scale(1.15);
+}
+
+/* Paper Stack Order */
+#p0 {
+    z-index: 4;
+}
+#p1 {
+    z-index: 3;
+}
+#p2 {
+    z-index: 2;
+}
+#p3 {
+    z-index: 1;
 }
 
 .coverIMGcontainer {
     margin: auto;
-    border: 2px rgb(60, 60, 60) solid;
-    padding: 50px;
-    height: 80vh;
+    border: 2px #9d8162 solid;
+    border-radius: 10px;
+    width: 50%;
+    height: 50%;
 }
 
 .coverIMG {
     height: 100%;
     width: 100%;
     background-size: cover;
-}
-
-.Divider {
-    border-top: 2px rgb(60, 60, 60) solid;
-    width: 70%;
-    margin: auto;
-    margin-top: 30px;
-    padding-bottom: 30px;
+    border-radius: 8px;
 }

@@ -13,8 +13,8 @@
     margin: 0;
     display: grid;
     place-items: center;
-    min-height: 100vh;
-    padding-top: 230px;
+    min-height: 75vh;
+    padding-top: 12%;
     color: var(--primary-color);
 }
 
@@ -23,6 +23,8 @@ html {
 }
 
 body {
+    min-height: 1180px;
+    min-width: 820px;
     background-size: cover;
 }
 
@@ -41,15 +43,23 @@ input {
 }
 
 .hidden-enter {
-    background-color: aquamarine;
+    margin: auto;
+    max-width: 70%;
+    background-color: #ffbb00;
     border-radius: 50px;
+    outline: none;
+    transition: .2s ease-in-out;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.hidden-enter:hover {
+    transform: scale(1.1);
 }
 
 .nav {
     margin-left: 10%;
     margin-right: 10%;
     position: fixed;
-    background-color: #ffd54a4c;
+    background-color: #ffffff4c;
     width: 80%;
     height: 100px;
     border-radius: 0 0 30px 30px;
@@ -68,7 +78,7 @@ input {
     height: 120px; 
     min-width: 170px; 
     border-radius: 0 0 25px 25px; 
-    background-color: brown; 
+    background-color: #a52a2a; 
     padding-top: 35px;
     text-align: center;
     transition: transform .3s ease-out;
@@ -106,7 +116,7 @@ input {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    height: 4px;
+    height: 5px;
     width: 100%;
     background-color: hsl(0, 0%, 86%);
     z-index: -1;
@@ -119,8 +129,8 @@ input {
 }
 
 .progress-step {
-    width: 2.1875rem;
-    height: 2.1875rem;
+    width: 2.4875rem;
+    height: 2.4875rem;
     background-color: #f3f3f3;
     border-radius: 50%;
     display: flex;
@@ -131,6 +141,7 @@ input {
 .progress-step::before {
     counter-increment: step;
     content: counter(step);
+    color: rgb(0, 0, 0);
 }
 
 .progress-step::after {
@@ -144,6 +155,9 @@ input {
 .progress-step-active {
     background-color: var(--primary-color);
     color: rgb(0, 0, 0);
+}
+
+.progress-anim {
     animation: pulse 2s infinite;
 }
 @keyframes pulse {
@@ -153,7 +167,7 @@ input {
 	}
 
 	70% {
-		transform: scale(1);
+		transform: scale(1.2);
 		box-shadow: 0 0 0 10px rgba(255, 187, 0, 0);
 	}
 
@@ -169,8 +183,22 @@ input {
     margin: 0 auto;
     border-radius: 40px;
     padding: 30px;
-    /*background-color: #ffd54a4c;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;*/
+    background-color: #ffffff4c;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    animation: anim 3s ease-in-out infinite
+}
+@keyframes anim {
+    0% {
+		transform: scale(1.0);
+	}
+
+	50% {
+		transform: scale(1.05);
+	}
+
+	100% {
+		transform: scale(1.0);
+	}
 }
 
 .form-step {
@@ -220,32 +248,79 @@ input {
     box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
 }
 
-/* loading dot styling */
-.dotcontainer{
-    width: 60px;
-    margin: 70px auto;
+/* loading styling */
+.loader {
+    width: 200px;
+    height: 140px;
+    background: #979794;
+    box-sizing: border-box;
+    position: relative;
+    border-radius:8px;
+    perspective: 1000px;
     visibility: hidden;
+    box-shadow: rgba(111, 110, 100, 0.2) 0px 7px 29px 0px;
+    animation: loadanim 2s infinite linear;
   }
-  .dot{
-    width: 15px;
-    height: 15px;
-    display: inline-block;
-    border-radius: 100%;
+  @keyframes loadanim {
+    0% {
+		transform: rotate(0deg);
+	}
+    25% {
+		transform: rotate(10deg);
+	}
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+		transform: rotate(-10deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
   }
-  .dot1{
-    background-color: #1abc9c;
-    animation: jump-up 0.6s 0.1s linear infinite;
+
+  .loader:before{
+    content: '';
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 10px;
+    bottom: 10px;
+    border-radius:8px;
+    background: #f5f5f5  no-repeat;
+    background-size: 60px 10px;
+    background-image: 	linear-gradient(#ddd 100px, transparent 0) ,
+              linear-gradient(#ddd 100px, transparent 0), 
+              linear-gradient(#ddd 100px, transparent 0), 
+              linear-gradient(#ddd 100px, transparent 0), 
+              linear-gradient(#ddd 100px, transparent 0), 
+              linear-gradient(#ddd 100px, transparent 0);
+    
+    background-position: 15px 30px , 15px 60px , 15px 90px, 
+              105px 30px , 105px 60px , 105px 90px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
   }
-  .dot2{
-    background-color: #ffd64a;
-    animation: jump-up 0.6s 0.2s linear infinite;
+  .loader:after {
+    content: '';
+      position: absolute;
+      width: calc(50% - 10px);
+      right: 10px;
+      top: 10px;
+      bottom: 10px;
+      border-radius: 8px;
+      background: #fff no-repeat;
+      background-size: 60px 10px;
+      background-image: linear-gradient(#ddd 100px, transparent 0), 
+              linear-gradient(#ddd 100px, transparent 0), 
+              linear-gradient(#ddd 100px, transparent 0);
+      background-position: 50% 30px ,50% 60px , 50%  90px;
+      transform: rotateY(0deg );
+      transform-origin: left center;
+    animation: paging 1s linear infinite;
   }
-  .dot3{
-    background-color: #e867af;
-    animation: jump-up 0.6s 0.3s linear infinite;
-  }
-  @keyframes jump-up{
-    50%{
-      transform: translate(0,15px);
+
+  @keyframes paging {
+    to {
+      transform: rotateY( -180deg );
     }
   }
