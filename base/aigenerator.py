@@ -3,9 +3,12 @@ import openai
 from django.conf import settings
 from random import randint
 from gtts import gTTS
+from Storybook_Generator.settings import STATIC_URL
 
 openai.api_key =  settings.OPENAI_API_KEY
 openai.Model.list()
+
+audioFilePath = os.path.join(STATIC_URL, 'audio/StoryAudio.mp3')
 
 def returnStorybookName(bookName):
     response = openai.Completion.create(
@@ -91,7 +94,7 @@ def returnFantasyStorybookStory(name, quest, location):
             audio = gTTS(text=answer, lang='en', tld='co.za', slow=False)
 
             # Save to mp3 in audio dir.
-            audio.save("/Users/floriskruger4/Desktop/Storybook_Generator/Storybook_Generator/static/audio/StoryAudio.mp3")
+            audio.save(audioFilePath)
             
             return answer
         else:
@@ -150,7 +153,7 @@ def returnSportsStorybookStory(name, sport, location):
             audio = gTTS(text=answer, lang='en', tld='co.za', slow=False)
 
             # Save to mp3 in audio dir.
-            audio.save("/Users/floriskruger4/Desktop/Storybook_Generator/Storybook_Generator/static/audio/StoryAudio.mp3")
+            audio.save(audioFilePath)
 
             return answer
         else:
@@ -207,7 +210,7 @@ def returnAdventureStorybookStory(name, adventure, location):
             audio = gTTS(text=answer, lang='en', tld='co.za', slow=False)
 
             # Save to mp3 in audio dir.
-            audio.save("/Users/floriskruger4/Desktop/Storybook_Generator/Storybook_Generator/static/audio/StoryAudio.mp3")
+            audio.save(audioFilePath)
 
             return answer
         else:
@@ -266,7 +269,7 @@ def returnSpookyStorybookStory(name, spooky, location):
             audio = gTTS(text=answer, lang='en', tld='co.za', slow=False)
 
             # Save to mp3 in audio dir.
-            audio.save("/Users/floriskruger4/Desktop/Storybook_Generator/Storybook_Generator/static/audio/StoryAudio.mp3")
+            audio.save(audioFilePath)
             
             return answer
         else:

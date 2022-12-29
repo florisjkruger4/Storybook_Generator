@@ -98,7 +98,9 @@ function loadAnim() {
     document.getElementById('loader').style.visibility = "visible";
 }
 
-if (window.location.href === "http://127.0.0.1:8000/"){
+currentURL = location.pathname
+
+if (currentURL === "/"){
               document.getElementById('BG').style.backgroundImage = "url(/static/images/fantasy.gif)"
               document.getElementById('BG').style.backgroundPosition = "bottom"
               document.getElementById('BG').style.backgroundPositionY = "-35vh"
@@ -106,7 +108,7 @@ if (window.location.href === "http://127.0.0.1:8000/"){
               document.getElementById('title').style.fontSize = "31px"
               document.getElementById('fantasyBtn').style.animation = "anim 3s ease-in-out infinite"
             }
-if (window.location.href === "http://127.0.0.1:8000/sportsPage"){
+if (currentURL === "/sportsPage"){
               document.getElementById('BG').style.backgroundImage = "url(/static/images/sports.gif)"
               document.getElementById('BG').style.backgroundPosition = "bottom"
               document.getElementById('BG').style.backgroundPositionY = "-18vh"
@@ -114,14 +116,14 @@ if (window.location.href === "http://127.0.0.1:8000/sportsPage"){
               document.getElementById('title').style.fontSize = "28px"
               document.getElementById('sportsBtn').style.animation = "anim 3s ease-in-out infinite"
             }
-if (window.location.href === "http://127.0.0.1:8000/adventurePage"){
+if (currentURL === "/adventurePage"){
               document.getElementById('BG').style.backgroundImage = "url(/static/images/adventure.gif)"
               document.getElementById('BG').style.backgroundPosition = "bottom"
               document.getElementById('BG').style.backgroundPositionY = "-15vh"
               document.getElementById('title').style.fontFamily = "Bangers, cursive"
               document.getElementById('adventureBtn').style.animation = "anim 3s ease-in-out infinite"
             }
-if (window.location.href === "http://127.0.0.1:8000/spookyPage"){
+if (currentURL === "/spookyPage"){
               document.getElementById('BG').style.backgroundImage = "url(/static/images/spooky.gif)"
               document.getElementById('BG').style.backgroundPosition = "bottom"
               document.getElementById('BG').style.backgroundPositionY = "-10vh"

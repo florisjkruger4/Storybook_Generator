@@ -8,11 +8,12 @@ from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from django.shortcuts import render
+from Storybook_Generator.settings import STATIC_URL
 
 def fantasyPage(request):
 
-    audioPath = "/Users/floriskruger4/Desktop/Storybook_Generator/Storybook_Generator/static/audio/StoryAudio.mp3"
-    audioDirPath = "/Users/floriskruger4/Desktop/Storybook_Generator/Storybook_Generator/static/audio"
+    audioPath = os.path.join(STATIC_URL, 'audio/StoryAudio.mp3')
+    audioDirPath = os.path.join(STATIC_URL, 'audio/')
     audioDir = os.listdir(audioDirPath)
 
     if (len(audioDir) != 0):
@@ -75,8 +76,8 @@ def fantasyPage(request):
 
 def sportsPage(request):
 
-    audioPath = "/Users/floriskruger4/Desktop/Storybook_Generator/Storybook_Generator/static/audio/StoryAudio.mp3"
-    audioDirPath = "/Users/floriskruger4/Desktop/Storybook_Generator/Storybook_Generator/static/audio"
+    audioPath = os.path.join(STATIC_URL, 'audio/StoryAudio.mp3')
+    audioDirPath = os.path.join(STATIC_URL, 'audio/')
     audioDir = os.listdir(audioDirPath)
 
     if (len(audioDir) != 0):
@@ -138,8 +139,8 @@ def sportsPage(request):
 
 def adventurePage(request):
 
-    audioPath = "/Users/floriskruger4/Desktop/Storybook_Generator/Storybook_Generator/static/audio/StoryAudio.mp3"
-    audioDirPath = "/Users/floriskruger4/Desktop/Storybook_Generator/Storybook_Generator/static/audio"
+    audioPath = os.path.join(STATIC_URL, 'audio/StoryAudio.mp3')
+    audioDirPath = os.path.join(STATIC_URL, 'audio/')
     audioDir = os.listdir(audioDirPath)
 
     if (len(audioDir) != 0):
@@ -201,8 +202,8 @@ def adventurePage(request):
 
 def spookyPage(request):
 
-    audioPath = "/Users/floriskruger4/Desktop/Storybook_Generator/Storybook_Generator/static/audio/StoryAudio.mp3"
-    audioDirPath = "/Users/floriskruger4/Desktop/Storybook_Generator/Storybook_Generator/static/audio"
+    audioPath = os.path.join(STATIC_URL, 'audio/StoryAudio.mp3')
+    audioDirPath = os.path.join(STATIC_URL, 'audio/')
     audioDir = os.listdir(audioDirPath)
 
     if (len(audioDir) != 0):
@@ -263,21 +264,5 @@ def spookyPage(request):
 
 
 def storyPage(request):
+    return render(request, 'html/base/story.html')
 
-    fantasyFont = "'MedievalSharp', cursive;"
-    sportsFont = "'Bungee', cursive;"
-    adventureFont = "'Bangers', cursive;"
-    spookyFont = "'Creepster', cursive;"
-
-    context = {
-        "fantasyFont":fantasyFont,
-        "sportsFont":sportsFont,
-        "adventureFont":adventureFont,
-        "spookyFont":spookyFont,
-    } 
-    return render(request, 'html/base/story.html', context)
-
-
-def test(request):
-    context = {}
-    return render(request, 'html/base/test.html', context)
