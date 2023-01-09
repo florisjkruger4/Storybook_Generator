@@ -16,7 +16,7 @@ def fantasyPage(request):
     audioDirPath = os.path.join(STATIC_URL, 'audio/')
     audioDir = os.listdir(audioDirPath)
 
-    if (len(audioDir) != 0):
+    if (len(audioDir) != 1):
         os.remove(audioPath)
 
     prompt1 = "Enter a name!"
