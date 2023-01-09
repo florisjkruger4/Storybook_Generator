@@ -125,6 +125,14 @@ button:hover {
     color: #624a2e;
     transform: scale(1.15);
 }
+.btncls {
+    cursor: pointer;
+    transition: transform .3s ease-out;
+}
+.btncls:hover {
+    color: #624a2e;
+    transform: scale(1.15);
+}
 
 /* Paper Stack Order */
 #p0 {
