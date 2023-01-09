@@ -9,7 +9,9 @@ from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from django.shortcuts import render
 from Storybook_Generator.settings import STATIC_URL
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def fantasyPage(request):
 
     audioPath = os.path.join(STATIC_URL, 'audio/StoryAudio.mp3')
@@ -73,7 +75,7 @@ def fantasyPage(request):
     return render(request, 'html/base/home.html', context)
 
 
-
+@csrf_exempt
 def sportsPage(request):
 
     audioPath = os.path.join(STATIC_URL, 'audio/StoryAudio.mp3')
@@ -136,7 +138,7 @@ def sportsPage(request):
     return render(request, 'html/base/home.html', context)
 
 
-
+@csrf_exempt
 def adventurePage(request):
 
     audioPath = os.path.join(STATIC_URL, 'audio/StoryAudio.mp3')
@@ -199,7 +201,7 @@ def adventurePage(request):
     return render(request, 'html/base/home.html', context)
 
 
-
+@csrf_exempt
 def spookyPage(request):
 
     audioPath = os.path.join(STATIC_URL, 'audio/StoryAudio.mp3')
